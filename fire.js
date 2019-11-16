@@ -6,9 +6,11 @@ function start(){
     createFireDataStructure();
     createFireSource();
     renderFire();
-    console.log(firePixelsArray);
+    setInterval(calculateFirePropagation, 2000);
+    
 }
 
+//CRIA A ESTRUTURA DE PIXELS
 function createFireDataStructure(){
     const numerOfPixels = fireHeight * fireWidth;
 
@@ -17,10 +19,18 @@ function createFireDataStructure(){
     }
 }
 
+//CALCULA A PROPAGAÇÃO DO FOGO VERTICALMENTE
 function calculateFirePropagation(){
-
+    for(let column = 0; column < fireWidth; column++){
+        for(let row = 0; row < fireHeight; row++){
+            const pixelIndex = column + ( fireWidth * row); 
+        }
+    }
 }
 
+
+
+//CRIA UMA TABELA COM O INDEX E A INTENSIDADE DO FOGO
 function renderFire(){
     let html = '<table cellpadding=0 cellspacing=0>';
 
@@ -45,6 +55,7 @@ function renderFire(){
     document.querySelector('#fireCanvas').innerHTML = html;
 }
 
+//SETA A INTENSIDADE DO FOGO NA BASE DA TABELA
 function createFireSource(){
     for(let column = 0; column <= fireWidth; column++){
         const overflowPixelIndex = fireWidth * fireHeight;
