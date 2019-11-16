@@ -24,11 +24,26 @@ function calculateFirePropagation(){
     for(let column = 0; column < fireWidth; column++){
         for(let row = 0; row < fireHeight; row++){
             const pixelIndex = column + ( fireWidth * row); 
+            updateFireIntensityPerPixel(pixelIndex);
         }
     }
+
+    renderFire();
 }
 
+function updateFireIntensityPerPixel(currentPixelIndex){
+    const belowPixelIndex = currentPixelIndex + fireWidth;
 
+    if(belowPixelIndex >= fireWidth * fireHeight){
+        return ;
+    }
+
+    const decay = 1;
+    const belowPixelFireIntensity = firePixelsArray[belowPixelIndex];
+    const newFireIntensity = belowPixelFireIntensity - decay;
+
+    firePixelsArray[currentPixelIndex] = newFireIntensity;
+}
 
 //CRIA UMA TABELA COM O INDEX E A INTENSIDADE DO FOGO
 function renderFire(){
