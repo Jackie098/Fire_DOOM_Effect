@@ -1,0 +1,8 @@
+{
+  "name": "fogodoom",
+  "version": "1.0.0",
+  "description": "Fogo do jogo DOOM versão Filipe Deschamps",
+  "main": "index.html",
+  "author": "Jackie098 <carlosmiranda19122@gmail.com>",
+  "license": "MIT"
+}
